@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Küchen nach Maß | Räume für das Leben</title>
+    <meta name="description" content="Kompakt, charaktervoll oder exklusiv: Entdecken Sie individuelle Küchenideen und fragen Sie einen persönlichen Beratungstermin an.">
+    <meta name="theme-color" content="#183b2e">
+    <meta property="og:title" content="Küchen nach Maß">
+    <meta property="og:description" content="Ihre Küche. Ihr Leben. Nach Maß.">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="site-frame">
+      <a class="skip-link" href="#main">Zum Inhalt</a>
+      <header class="header">
+        <a class="wordmark" href="#main" aria-label="Küchen nach Maß — Startseite">Küchen<span>nach Maß</span><i aria-hidden="true"></i></a>
+        <span class="header-note">Räume für das Leben.</span>
+        <nav aria-label="Kontaktmöglichkeiten">
+          <button class="nav-button" type="button" data-open-form="zusammenarbeit" aria-haspopup="dialog" aria-controls="form-dialog">Zusammenarbeit</button>
+          <button class="nav-button consultation-nav" type="button" data-open-form="beratung" aria-haspopup="dialog" aria-controls="form-dialog">Kontakt</button>
+        </nav>
+      </header>
+      <main id="main" class="main" tabindex="-1">
+        <section class="intro" aria-labelledby="title">
+          <p class="eyebrow">Individuell geplant. Für Sie gemacht.</p>
+          <h1 id="title">Ihre Küche. <br />Ihr Leben.<br /><em>Nach Maß.</em></h1>
+          <div class="services-copy" tabindex="0" role="region" aria-labelledby="services-title">
+            <h2 id="services-title">Unsere Leistungen – Maßgefertigte Küchen nach Maß</h2>
+            <p>Von der ersten Idee bis zur schlüsselfertigen Montage begleiten wir Sie auf dem Weg zu Ihrer Traumküche. Wir bieten Ihnen einen umfassenden Full-Service-Prozess aus einer Hand:</p>
+            <p><strong>Individuelle 3D-Planung &amp; Designberatung:</strong> Unsere erfahrenen Designer entwickeln ein maßgeschneidertes Konzept, das perfekt auf Ihren Raum und Ihren Lebensstil abgestimmt ist.</p>
+            <p><strong>Große Auswahl an Materialien &amp; Farben:</strong> Entdecken Sie unsere Vielfalt an hochwertigen Oberflächen, Arbeitsplatten und Fronten – von edlem Massivholz bis hin zu modernem Mattlack und Stein.</p>
+            <p><strong>Komplette Projektumsetzung:</strong> Wir übernehmen das Aufmaß vor Ort, die termingerechte Fertigung, die professionelle Lieferung sowie die fachgerechte Montage aller Geräte und Möbel.</p>
+          </div>
+          <div class="actions">
+            <button class="button primary" type="button" data-open-form="beratung" aria-haspopup="dialog" aria-controls="form-dialog">Beratung anfragen</button>
+            <button class="button secondary" type="button" data-open-form="zusammenarbeit" aria-haspopup="dialog" aria-controls="form-dialog">Zusammenarbeit</button>
+          </div>
+          <p class="intro-footnote">Ein guter Raum beginnt mit einem Gespräch.</p>
+        </section>
+        <section class="showcase" aria-label="Küchenbeispiele">
+          <div class="kitchens">
+            <button class="kitchen kitchen-kompakt" type="button" data-photo="kompakt" aria-label="Kompakt: Foto vergrößern" aria-haspopup="dialog" aria-controls="photo-dialog">
+              <div class="photo-window"><img src="./images/kompakt.webp" alt="Kompakte olivgrüne Küche mit hellen Oberschränken und offenen Holzregalen" width="900" height="1300" fetchpriority="high" style="animation-delay: 0ms"></div>
+              <div class="kitchen-caption"><h3>Kompakt</h3><p>Kleiner Raum. Große Möglichkeiten.</p></div>
+            </button>
+            <button class="kitchen kitchen-design" type="button" data-photo="design" aria-label="Charaktervoll: Foto vergrößern" aria-haspopup="dialog" aria-controls="photo-dialog">
+              <div class="photo-window"><img src="./images/design.webp" alt="Moderne bordeauxrote Küche mit dunklen Steinflächen und einer Kücheninsel" width="900" height="1300" fetchpriority="auto" style="animation-delay: 110ms"></div>
+              <div class="kitchen-caption"><h3>Charaktervoll</h3><p>Design mit Persönlichkeit.</p></div>
+            </button>
+            <button class="kitchen kitchen-exklusiv" type="button" data-photo="exklusiv" aria-label="Exklusiv: Foto vergrößern" aria-haspopup="dialog" aria-controls="photo-dialog">
+              <div class="photo-window"><img src="./images/exklusiv.webp" alt="Großzügige dunkle Küche mit Holzoberflächen und warmer indirekter Beleuchtung" width="900" height="1300" fetchpriority="auto" style="animation-delay: 220ms"></div>
+              <div class="kitchen-caption"><h3>Exklusiv</h3><p>Besondere Räume. Besondere Details.</p></div>
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><span>Küchen nach Maß</span><span>Planung mit Persönlichkeit.</span><small>Konzeptwebsite</small></footer>
+      <dialog id="form-dialog" class="form-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-intro">
+        <button class="close" aria-label="Dialog schließen" type="button" data-close="form-dialog">×</button>
+        <p class="eyebrow">Lassen Sie uns sprechen</p>
+        <h2 id="dialog-title">Ihre Küche beginnt hier.</h2>
+        <p id="dialog-intro">Erzählen Sie uns von Ihren Plänen. Wählen Sie einen Wunschtermin für unseren Rückruf.</p>
+        <form id="request-form">
+          <label>Ihr Name<input name="name" autocomplete="name" required minlength="2" maxlength="80" /></label>
+          <label>Telefonnummer<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+49 …" required maxlength="25" /></label>
+          <label id="proposal-field" hidden>Ihr Vorschlag<textarea name="proposal" disabled placeholder="Was möchten Sie gemeinsam mit uns umsetzen?" required minlength="10" maxlength="2000" rows="3"></textarea></label>
+          <div class="form-row"><label>Wunschdatum<input name="date" type="date" required /></label><label>Uhrzeit für den Rückruf<input name="time" type="time" required /></label></div>
+          <p class="form-note">Bitte geben Sie die Uhrzeit in Ihrer lokalen Zeitzone an. Der Termin wird persönlich bestätigt.</p>
+          <button class="button primary" type="submit">Rückruf anfragen</button>
+          <p class="form-note">Konzeptformular: Der Versand ist noch nicht eingerichtet.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </dialog>
+      <dialog id="photo-dialog" class="photo-dialog" aria-label="Kompakt — Küchenansicht">
+        <button class="close" aria-label="Foto schließen" type="button" data-close="photo-dialog">×</button>
+        <img src="./images/kompakt.webp" alt="Kompakte olivgrüne Küche mit hellen Oberschränken und offenen Holzregalen" width="900" height="1300">
+        <p>Kompakt</p>
+      </dialog>
+    </div>
+  </body>
+</html>

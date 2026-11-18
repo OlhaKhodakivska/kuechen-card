@@ -32,61 +32,47 @@ Die Screenshots zeigen die tatsächliche lokale Umsetzung bei 1440 × 900 und 39
 - **Reduzierte Bewegung:** Animationen werden bei aktivierter Systemeinstellung `prefers-reduced-motion` deaktiviert.
 - **Eigenes Favicon:** ein reduziertes Küchenmotiv in den Farben der Website.
 
-Auf kleinen Bildschirmen können längere Formulare innerhalb ihres Dialogfensters gescrollt werden. Die Startseite bleibt dabei im Hintergrund.
+Der vollständige Leistungstext steht in einem eigenen, per Tastatur und Touch scrollbar zugänglichen Bereich. So bleiben die Kontaktbuttons und Küchenbilder auf der bildschirmfüllenden Startseite erreichbar. Auf kleinen Bildschirmen können längere Formulare innerhalb ihres Dialogfensters gescrollt werden.
 
 ## Technischer Aufbau
 
 | Technologie | Einsatz |
 | --- | --- |
-| React 19 | Benutzeroberfläche, Dialoge und Formularzustand |
-| TypeScript | Typisierung der Komponenten und Ereignisse |
-| vinext / Vite | Entwicklungsserver und Produktionsbuild |
-| CSS | Responsive Grids, Bildschirmhöhen und Animationen |
-| Native HTML-Dialoge | Kontaktformulare und Fotoansicht |
+| HTML5 | Semantische Struktur, native Dialoge und Formularfelder |
+| CSS3 | Responsive Grids, Bildschirmhöhen, Farben und Animationen |
+| Vanilla JavaScript | Dialogsteuerung, Fotoansicht und Formularprüfung |
 | WebP | Optimierte lokale Küchenbilder |
 | Google Fonts | DM Sans und Manrope |
 
-Die Website verwendet keine Datenbank. Für die derzeitigen Demoformulare sind keine Zugangsdaten oder Umgebungsvariablen erforderlich. Die Schriftarten werden von Google Fonts geladen.
+Kein Framework, keine npm-Abhängigkeiten und kein Build-Schritt. Die Schriftarten werden von Google Fonts geladen. Es werden keine Datenbank oder Zugangsdaten benötigt.
 
 ## Lokal starten
 
-Voraussetzungen: **Node.js ab 22.13.0** und npm.
+Den Projektordner in VS Code öffnen und **Live Server** starten. Alternativ im Projektverzeichnis:
 
 ```bash
-npm ci
-npm run dev
+python3 -m http.server 5500
 ```
 
-Anschließend die im Terminal angezeigte lokale Adresse öffnen, normalerweise [http://localhost:3000](http://localhost:3000).
-
-### Code prüfen und bauen
-
-```bash
-npm run lint
-npm run build
-```
+Dann [http://localhost:5500](http://localhost:5500) öffnen. Die Website kann auch direkt über `index.html` geöffnet werden.
 
 ## Projektstruktur
 
 ```text
-app/
-├── page.tsx              # Startseite, Fotodialog und Kontaktformulare
-├── layout.tsx            # Sprache, Seitentitel und Metadaten
-└── globals.css           # Layout, Farben, responsive Regeln und Animationen
-public/
+kuechen-card/
+├── index.html           # Startseite, Fotodialog und Kontaktformulare
+├── style.css            # Unveränderte Gestaltung und Animationen
+├── script.js            # Dialoge, Fokussteuerung und Validierung
 ├── favicon.png
-└── images/
-    ├── kompakt.webp
-    ├── design.webp
-    └── exklusiv.webp
-docs/
-└── screenshots/
-    ├── desktop.png
-    └── mobile.png
-build/                    # Sites-Integration für den Build
-worker/                   # Cloudflare-Worker-Einstiegspunkt
-.openai/hosting.json       # Zuordnung zur bestehenden Sites-Veröffentlichung
-vite.config.ts            # vinext-, Vite- und Worker-Konfiguration
+├── images/
+│   ├── kompakt.webp
+│   ├── design.webp
+│   └── exklusiv.webp
+├── docs/
+│   └── screenshots/
+│       ├── desktop.png
+│       └── mobile.png
+└── README.md
 ```
 
 ## Status der Formulare
@@ -95,13 +81,16 @@ vite.config.ts            # vinext-, Vite- und Worker-Konfiguration
 
 Vor einem echten Einsatz müssen E-Mail-Versand oder ein passender Formular-Endpunkt eingerichtet werden. Der vorgeschlagene Rückrufzeitpunkt wird in der lokalen Zeitzone der anfragenden Person eingegeben. Es gibt weder Kalenderabgleich noch automatische Terminreservierung; ein Termin muss persönlich bestätigt werden.
 
-## Veröffentlichung
+## Veröffentlichung mit GitHub Pages
 
-Die aktuelle Build-Konfiguration ist für **Sites / Cloudflare Workers** eingerichtet und erzeugt einen Worker-basierten Build. Die vorhandene Sites-Veröffentlichung ist privat und kann eine Anmeldung verlangen.
+1. Den Quellcode einschließlich `images/`, `favicon.png` und `docs/screenshots/` in das GitHub-Repository pushen.
+2. Unter **Settings → Pages** die Quelle **Deploy from a branch** auswählen.
+3. Den Branch mit der Website (normalerweise `main`) und den Ordner **/ (root)** wählen.
+4. Speichern und warten, bis GitHub die Website veröffentlicht hat.
 
-Ein GitHub-Repository kann den gesamten Quellcode und diese Dokumentation enthalten. **GitHub Pages kann den aktuellen Worker-Build nicht direkt ausführen.**
+Die lokalen Dateien werden mit relativen Pfaden eingebunden. Dadurch funktioniert die Website auch unter einer GitHub-Pages-Repository-Adresse. Es ist keine Anmeldung für Besucher erforderlich, und es werden keine Build- oder Servereinstellungen benötigt.
 
-Für eine Veröffentlichung auf **Vercel** muss die bestehende vinext-/Worker-Konfiguration zunächst auf eine dort unterstützte Build- und Laufzeitkonfiguration umgestellt werden. Ein unveränderter Import als gewöhnliches Next.js-Projekt ist nicht die vorgesehene Bereitstellung dieser Version.
+Die ursprüngliche React-/vinext-Umsetzung wurde durch HTML, CSS und JavaScript ersetzt. Desktop- und Mobilansicht wurden bei 1440 × 900 und 390 × 844 Pixeln mit den ursprünglichen Screenshots verglichen; die Ansichten waren pixelgleich.
 
 ## Konzept & Bildmaterial
 
